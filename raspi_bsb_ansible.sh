@@ -5,12 +5,12 @@ sudo apt install git -y
 sudo apt install ssh -y 
 sudo apt install curl -y
 
-cd /home/iplon/raspi_packages/raspi_bsb_ansible
+cd /home/iplon/raspi_packages
 
 #Horbor certificate 
 mkdir -p /etc/docker/certs.d/ivpn.iplon.co.in:8443
-cp /home/iplon/raspi_packages/raspi_bsb_ansible/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
-cd /home/iplon/raspi_packages/raspi_bsb_ansible/
+cp /home/iplon/raspi_packages/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
+cd /home/iplon/raspi_packages
 
 #docker installation
 sudo apt-get update

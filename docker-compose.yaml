@@ -1,0 +1,137 @@
+version: "3.3"
+
+services:
+  influxdb:
+    container_name: influxdb
+    image: ivpn.iplon.co.in:8443/raspi_packages/influxdb:2.4.0
+    volumes:
+      - influxdb-etc:/etc/influxdb
+      - influxdb-lib:/root/.influxdbv2
+      - influxdb-log:/var/log/influxdb
+    network_mode: "host"
+    restart: always
+    privileged: true
+
+  grafana:
+    container_name: grafana
+    image: ivpn.iplon.co.in:8443/raspi_packages/grafana:9.0.6
+    volumes:
+      - grafana-etc:/etc/influxdb
+      - grafana-lib:/var/lib/grafana
+      - grafana-log:/var/log/grafana
+    network_mode: "host"
+    depends_on:
+      - influxdb
+    restart: always
+    privileged: true
+
+  telegraf:
+    container_name: telegraf
+    image: ivpn.iplon.co.in:8443/raspi_packages/telegraf:1.24.2
+    volumes:
+      - telegraf-etc:/etc/telegraf
+      - telegraf-log:/var/log/telegraf
+    network_mode: "host"
+    restart: always
+    privileged: true
+
+  nodered:
+    container_name: node-red
+    image: ivpn.iplon.co.in:8443/raspi_packages/nodered:latest
+    volumes:
+      - nodered-lib:/root/.node-red
+      - nodered-log:/var/log/nodeRed
+    network_mode: "host"
+    restart: always
+    privileged: true
+
+  rabbitmq:
+    container_name: rabbitMQ
+    image: ivpn.iplon.co.in:8443/raspi_packages/rabbitmq:3.11.6
+    volumes:
+      - rabbitmq-etc:/etc/rabbitmq
+      - rabbitmq-log:/var/log/rabbitmq
+    network_mode: "host"
+    restart: always
+    privileged: true
+
+ # prometheus:
+  #  container_name: prometheus
+  #  image: prometheus:2.41.0
+  #  volumes:
+  #    - prometheus-lib:/home/prometheus
+  #  network_mode: "host"
+  #  restart: always
+  #  privileged: true
+
+ # pushgateway:
+   # container_name: pushgateway
+   # image: pushgateway:1.5.1
+   # network_mode: "host"
+   # depends_on:
+   #   - prometheus
+   # restart: always
+   # privileged: true  
+
+ # promtail:
+   # container_name: promtail
+   # image: promtail:2.7.1
+   # volumes:
+   #  - promtail-lib:/home/promtail
+   #   - /var/lib/docker/volumes/influxdb-log/_data:/var/log/IOT70/influxdb-log
+   #   - /var/lib/docker/volumes/grafana-log/_data:/var/log/IOT70/grafana-log
+   #   - /var/lib/docker/volumes/nodered-log/_data:/var/log/IOT70/nodered-log
+   #   - /var/lib/docker/volumes/telegraf-log/_data:/var/log/IOT70/telegraf-log
+   #   - /var/lib/docker/volumes/rabbitmq-log/_data:/var/log/IOT70/rabbitmq-log
+   # network_mode: "host"
+   # restart: always
+   # privileged: true
+
+  #loki:
+   # container_name: loki
+    #image: loki:2.7.1
+    #volumes:
+     # - loki-lib:/home/loki
+    #network_mode: "host"
+    #restart: always
+   # privileged: true
+
+volumes:
+  influxdb-etc:
+    external: true
+  influxdb-lib:
+    external: true
+  influxdb-log:
+    external: true  
+
+  grafana-etc:
+    external: true
+  grafana-lib:
+    external: true
+  grafana-log:
+    external: true
+
+  telegraf-etc:
+    external: true
+  telegraf-log:
+    external: true
+
+  nodered-lib:
+    external: true
+  nodered-log:
+    external: true
+
+  rabbitmq-etc:
+    external: true
+  rabbitmq-log:
+    external: true
+
+ # prometheus-lib:
+   # external: true
+
+  #loki-lib:
+   # external: true
+
+ # promtail-lib:
+   # external: true
+

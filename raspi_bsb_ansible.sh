@@ -14,7 +14,7 @@ cd /home/iplon/raspi_packages/raspi_bsb_ansible/
 
 #docker installation
 sudo apt-get update
-sudo apt install docker.io
+sudo apt install docker.io -y
 
 #docker compose installation
 sudo apt-get update

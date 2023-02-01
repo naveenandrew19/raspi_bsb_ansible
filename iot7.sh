@@ -44,7 +44,7 @@ docker volume create rabbitmq-log
 #Promtail Mounting
 #docker volume create promtail-lib
 
-cd /home/iplon/Desktop/IOT70_BSP/
+cd /home/iplon/raspi_packages/raspi_bsb_ansible/
 docker compose up -d
 
 sleep 20;

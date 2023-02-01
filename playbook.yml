@@ -1,0 +1,31 @@
+---
+- hosts: all
+ become: yes
+ tasks:
+
+    - name: Git checkout
+     ansible.builtin.git:
+       repo: 'https://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@github.com/naveenandrew19/raspi_bsb_ansible.git'
+       dest: /home/iplon/raspi_packages
+       force: yes
+       clone: yes
+       update: yes
+       version: release-0.22
+     ignore_errors: yes
+
+
+
+   - name: Fix 'support_tools' permissions
+     file: path=/home/iplon/repos_2 owner=root group=root mode=0777 state=directory recurse=yes
+     ignore_errors: yes
+
+   - name: Go to the directory
+     ignore_errors: yes
+     action: shell cd /home/iplon/raspi_packages/raspi_bsb_ansible
+       force: yes
+
+
+   - name: Execute the iot script  
+     shell:
+           /home/iplon/raspi_packages/raspi_bsb_ansible/raspi_bsb_ansible/raspi_bsb_ansible.sh
+     ignore_errors: yes

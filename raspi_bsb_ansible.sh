@@ -2,7 +2,7 @@
 #basic required commands
 sudo apt update
 sudo apt install git -y
-sudo apt install ssh -y 
+#sudo apt install ssh -y 
 sudo apt install curl -y
 
 cd /home/iplon/raspi_packages

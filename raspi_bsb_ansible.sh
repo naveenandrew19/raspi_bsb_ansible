@@ -1,18 +1,11 @@
 #!/bin/bash
-
 #basic required commands
 sudo apt update
 sudo apt install git -y
 sudo apt install ssh -y 
 sudo apt install curl -y
 
-#creating workflow directory
-mkdir -p /home/iplon/raspi_packages
-
-#git clone required files
-cd /home/iplon/raspi_packages
-git clone https://github.com/naveenandrew19/raspi_bsb_ansible.git
-chmod 777 *
+cd /home/iplon/raspi_packages/raspi_bsb_ansible
 
 #Horbor certificate 
 mkdir -p /etc/docker/certs.d/ivpn.iplon.co.in:8443

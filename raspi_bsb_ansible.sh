@@ -7,17 +7,17 @@ sudo apt install ssh -y
 sudo apt install curl -y
 
 #creating workflow directory
-mkdir -p /home/iplon/raspi_packages
+mkdir -p /home/ubuntu/raspi_packages
 
 #git clone required files
-cd /home/iplon/raspi_packages
-git clone https://github.com/naveenandrew19/raspi_bsb_ansible.git
+cd /home/ubuntu/raspi_packages
+wget https://github.com/naveenandrew19/raspi_bsb_ansible.git
 chmod 777 -R raspi_bsb_ansible
 
 #Horbor certificate 
 mkdir -p /etc/docker/certs.d/ivpn.iplon.co.in:8443
-cp /home/iplon/raspi_packages/raspi_bsb_ansible/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
-cd /home/iplon/raspi_packages/raspi_bsb_ansible/
+cp /home/ubuntu/raspi_packages/raspi_bsb_ansible/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
+cd /home/ubuntu/raspi_packages/raspi_bsb_ansible/
 
 #docker installation
 sudo apt-get update
@@ -32,10 +32,10 @@ sudo service docker restart
 sudo docker compose version
 
 #run docker-compose packages
-./iot7.sh
+#./iot7.sh
 
 #rabbitmq plugin installation
-docker exec -it rabbitMQ bash rabbitmq-plugins enable rabbitmq_management
+#docker exec -it rabbitMQ bash rabbitmq-plugins enable rabbitmq_management
 
 
 

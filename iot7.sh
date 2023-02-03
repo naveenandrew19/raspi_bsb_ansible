@@ -45,7 +45,7 @@ docker volume create rabbitmq-log
 #docker volume create promtail-lib
 
 cd /home/ubuntu/raspi_packages/
-docker compose up -d
+docker-compose up -d
 
 sleep 20;
 docker exec rabbitMQ /bin/bash rabbitmqctl add_user admin iplon321

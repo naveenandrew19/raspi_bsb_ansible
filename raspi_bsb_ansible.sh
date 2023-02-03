@@ -7,17 +7,17 @@ sudo apt update
 #sudo apt install curl -y
 
 #creating workflow directory
-#mkdir -p /home/ubuntu/raspi_packages
+#mkdir -p /home/iplon/raspi_packages
 
 #git clone required files
-#cd /home/ubuntu/raspi_packages
+#cd /home/iplon/raspi_packages
 #git clone https://github.com/naveenandrew19/raspi_bsb_ansible.git
 #chmod 777 -R raspi_bsb_ansible
 
 #Horbor certificate 
 mkdir -p /etc/docker/certs.d/ivpn.iplon.co.in:8443
-cd /home/ubuntu/raspi_packages/
-cp /home/ubuntu/raspi_packages/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443/
+cd /home/iplon/raspi_packages/
+cp /home/iplon/raspi_packages/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443/
 
 
 #docker installation

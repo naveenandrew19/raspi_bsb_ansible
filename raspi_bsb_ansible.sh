@@ -16,8 +16,9 @@ sudo apt update
 
 #Horbor certificate 
 mkdir -p /etc/docker/certs.d/ivpn.iplon.co.in:8443
-cp /home/ubuntu/raspi_packages/raspi_bsb_ansible/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
 cd /home/ubuntu/raspi_packages/raspi_bsb_ansible/
+cp /home/ubuntu/raspi_packages/raspi_bsb_ansible/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
+
 
 #docker installation
 sudo apt-get update

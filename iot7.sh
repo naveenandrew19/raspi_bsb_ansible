@@ -44,7 +44,7 @@ docker volume create rabbitmq-log
 #Promtail Mounting
 #docker volume create promtail-lib
 
-cd /home/ubuntu/raspi_packages/
+cd /home/iplon/raspi_packages/
 docker-compose up -d
 
 sleep 20;

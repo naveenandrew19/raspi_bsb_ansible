@@ -11,7 +11,7 @@ mkdir -p /home/ubuntu/raspi_packages
 
 #git clone required files
 cd /home/ubuntu/raspi_packages
-wget https://github.com/naveenandrew19/raspi_bsb_ansible.git
+git clone https://github.com/naveenandrew19/raspi_bsb_ansible.git
 chmod 777 -R raspi_bsb_ansible
 
 #Horbor certificate 

@@ -16,8 +16,8 @@ sudo apt update
 
 #Horbor certificate 
 mkdir -p /etc/docker/certs.d/ivpn.iplon.co.in:8443
-#cd /home/ubuntu/raspi_packages/
-cp /home/ubuntu/raspi_packages/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443
+cd /home/ubuntu/raspi_packages/
+cp /home/ubuntu/raspi_packages/ca.crt /etc/docker/certs.d/ivpn.iplon.co.in:8443/
 
 
 #docker installation
